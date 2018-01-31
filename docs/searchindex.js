@@ -1,0 +1,1 @@
+Search.setIndex({docnames:["index"],envversion:53,filenames:["index.rst"],objects:{},objnames:{},objtypes:{},terms:{"keres\u00e9s":0,"t\u00e1rgymutat\u00f3":0,modul:0},titles:["Welcome to HMV-meretezes-docs\u2019s documentation!"],titleterms:{and:0,docs:0,documentat:0,hmv:0,indices:0,meretezes:0,tables:0,welcom:0}})
