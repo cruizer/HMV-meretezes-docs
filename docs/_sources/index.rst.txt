@@ -10,13 +10,9 @@ HMV Méretezés Dokumentáció
    :maxdepth: 2
    :caption: Contents:
 
+   setup
+   qgis_project_components
    usage
    calculations
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   components
 
