@@ -26,7 +26,7 @@
     <link rel="index" title="Tárgymutató" href="genindex.html" />
     <link rel="search" title="Keresés" href="search.html" />
     <link rel="next" title="Számítások" href="calculations.html" />
-    <link rel="prev" title="HMV Méretezés Dokumentáció" href="index.html" />
+    <link rel="prev" title="QGIS projekt konfiguracio a plugin hasznalatahoz" href="qgis_project_components.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -60,13 +60,15 @@
 <p>Ezt a következőképp tehetjük meg:</p>
 <ul class="simple">
 <li>Válasszuk a Beállítások fület.</li>
-<li>Az Új HMV réteg szekcióban:
-* Adjuk meg a létrehozandó réteg nevét a Réteg név mezőben.
-* Az Adatbázis file név mező automatikusan kitöltődik, ha a File név réteg név szerint? opció ki van pipálva.
-* Ha saját magunk adnánk meg az adatbázis file nevét (például azért mert több réteggel is dolgozunk és szeretnénk mindet egy file-ban tárolni), kapcsoljuk ki a File név réteg név szerint? opciót és adjuk meg a választott file nevet. (A file minden esetben a Réteg munkakönytár mezőben megadott helyen lesz létrehozva.
-* Válassza ki, hogy elemek vagy szakaszok típusú réteget szeretne létrehozni, egy HMV hálózat elemzéséhez egy-egy összetartozó elemek és szakaszok rétegre van szükség.
-* A réteg QGIS projekthez való automatikus hozzáadásához a Hozzáadás réteg listához? opciót be kell kapcsolni.
-* Nyomja meg a Létrehoz gombot.</li>
+<li>Az Új HMV réteg szekcióban:<ul>
+<li>Adjuk meg a létrehozandó réteg nevét a Réteg név mezőben.</li>
+<li>Az Adatbázis file név mező automatikusan kitöltődik, ha a File név réteg név szerint? opció ki van pipálva.</li>
+<li>Ha saját magunk adnánk meg az adatbázis file nevét (például azért mert több réteggel is dolgozunk és szeretnénk mindet egy file-ban tárolni), kapcsoljuk ki a File név réteg név szerint? opciót és adjuk meg a választott file nevet. (A file minden esetben a Réteg munkakönytár mezőben megadott helyen lesz létrehozva.</li>
+<li>Válassza ki, hogy elemek vagy szakaszok típusú réteget szeretne létrehozni, egy HMV hálózat elemzéséhez egy-egy összetartozó elemek és szakaszok rétegre van szükség.</li>
+<li>A réteg QGIS projekthez való automatikus hozzáadásához a Hozzáadás réteg listához? opciót be kell kapcsolni.</li>
+<li>Nyomja meg a Létrehoz gombot.</li>
+</ul>
+</li>
 </ul>
 <p>A rendszer ezután létrehoz egy SpatiaLite adatbázist a megadott file névvel, ha még nem létezik. Ha már van ilyen nevű adatbázis file a réteg munkakönyvtárban, akkor megkérdezi, hogy az új réteget a már létező file-ba mentheti-e. Ezután a választott réteg típus létrehozásra kerül az adatbázisban, fontos, hogy ilyenkor a plugin által végzendő kalkulációkhoz szükséges feature attribútumok is létrehozásra kerülnek. Ebből kifolyólag nem javasolt a rétegek manuális létrehozása a QGIS eszközökkel (New SpatiaLite Layer, New Shapefile Layer), mert így elkerülhető az attribútumok manuális létrehozásával járó plusz munka és esetleges esetleges konfigurációs, vagy adatbeviteli hiba lehetősége.</p>
 <p>Ha a létrehozáskor kiválasztotta a Hozzzáadás réteglistához? opciót, akkor az újonnan létrehozott réteg automatikusan hozzáadásra kerül a Rétegek Panel-hez (Layers Panel). Ellenkező esetben, ha szeretné hozzáadni az adott rétegeket a QGIS projektjéhez, kövesse a Már meglévő rétegek megnyitása részt.</p>
@@ -122,19 +124,23 @@
 <p>A analízis elvégzése előtt fontos, hogy a hálózat integritása megfelelő legyen. Ha a hálózat elemei között illesztési hibák vannak (két elem nem találkozik), akkor az analízis nem lesz elvégezhető, mivel az elemek közötti kapcsolatok nem értelmezhetőek.</p>
 <p>A hálózatot ellenörző funkció ebben nyújt segítséget, felderíti az integritási problémákat, így ezeket könnyebben megtalálhatja és javíthatja. A funkció haszálatához kattintson a Hálózat ell. fülre, majd nyomja meg a Hálózat ellenőrzés gombot. Az a következő állapot adatokat jelenítjük meg:</p>
 <ul>
-<li><p class="first">Státusz
-* Nem ellenőrzött (a hálózatot még nem ellenőrizte eddig)
-* Hibás! (a hálózatban hibát találtunk)
-* OK (a hálózat rendben van)</p>
+<li><p class="first">Státusz</p>
+<ul class="simple">
+<li>Nem ellenőrzött (a hálózatot még nem ellenőrizte eddig)</li>
+<li>Hibás! (a hálózatban hibát találtunk)</li>
+<li>OK (a hálózat rendben van)</li>
+</ul>
 </li>
 <li><p class="first">Összes elem száma: Az ellenőrzés során talált hálózati elemek száma.</p>
 </li>
 <li><p class="first">Hibás elemek száma: Az ellenőrzés során talált összes hibás elem száma.</p>
 </li>
-<li><p class="first">Hibás elemek (csatlakozás nem megfelelő): A talált hibás elemek listája.
-* QGIS réteg: Melyik rétegen található az adott elem.
-* id: Az elem azonosítója.
-* Típus: Az elem típusa.</p>
+<li><p class="first">Hibás elemek (csatlakozás nem megfelelő): A talált hibás elemek listája.</p>
+<ul class="simple">
+<li>QGIS réteg: Melyik rétegen található az adott elem.</li>
+<li>id: Az elem azonosítója.</li>
+<li>Típus: Az elem típusa.</li>
+</ul>
 <p>A hibás elemek listájában található elemeket javítani kell, majd az ellenőrzést meg kell ismételni.</p>
 </li>
 </ul>
@@ -164,7 +170,7 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="előző fejezet">HMV Méretezés Dokumentáció</a></li>
+      <li>Previous: <a href="qgis_project_components.html" title="előző fejezet">QGIS projekt konfiguracio a plugin hasznalatahoz</a></li>
       <li>Next: <a href="calculations.html" title="következő fejezet">Számítások</a></li>
   </ul></li>
 </ul>

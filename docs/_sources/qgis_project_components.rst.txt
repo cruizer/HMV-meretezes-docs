@@ -8,6 +8,7 @@ Lehetove teszi az geometria objektumok konnyebb illeszthetoseget es csokkenti a 
 
 * Snapping mode: Advanced
 * Minden layerhez:
+
   * Mode: **to vertex and segment**
   * Tolerance: **20**
   * Units: **pixels**
@@ -25,6 +26,7 @@ Formazas reszei
 Elemek:
 
 * Rule-based
+
   * Szivattyu, SVG kep, ``tipus=Szivattyu``
   * Halozat nem ellenorzott, kis pont kek, ``assoc_err=0``
   * Halozat OK, kis pont zold, ``assoc_err=2``
@@ -33,6 +35,7 @@ Elemek:
 Szakaszok:
 
 * Rule-based
+
   * Halozat hiba, piros, ``assoc_err=1``
   * Halozat OK, zold, ``accoc_err=2``
   * Halozat nem ellenorzott, sarga, ``assoc_err=0``
