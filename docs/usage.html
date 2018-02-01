@@ -1,0 +1,202 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hu">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Használat &#8212; HMV-meretezes-docs 0.0.1 dokumentáció</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Tárgymutató" href="genindex.html" />
+    <link rel="search" title="Keresés" href="search.html" />
+    <link rel="next" title="Számítások" href="calculations.html" />
+    <link rel="prev" title="HMV Méretezés Dokumentáció" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="hasznalat">
+<h1>Használat<a class="headerlink" href="#hasznalat" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
+<div class="section" id="plugin-inditasa">
+<h2>Plugin indítása<a class="headerlink" href="#plugin-inditasa" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>A telepítés után a plugin-nek meg kell jelennie a QGIS alkalmazás Plugins menüje alatt:</p>
+<p>Plugins → HMV Méretezés → HMV Méretezés</p>
+<p>Erre kattintva lehet a plugin-t indítani, amely a munkaterülettől jobbra jelenik meg egy beépülő panelban.</p>
+</div>
+<div class="section" id="munkaretegek-letrehozasa">
+<h2>Munkarétegek létrehozása<a class="headerlink" href="#munkaretegek-letrehozasa" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>A csőhálózat elemzéséhez kétféle vektor réteget kell létrehoznunk a QGIS-ben:</p>
+<ul class="simple">
+<li>Egy csomópont réteget a csőhálózat kötőelemek, végpontok és a szivattyú részére. (Point layer)</li>
+<li>Egy szakasz réteget az ezeket összekötő csőszakaszok részére. (Line Layer)</li>
+</ul>
+<p>Ezt a következőképp tehetjük meg:</p>
+<ul class="simple">
+<li>Válasszuk a Beállítások fület.</li>
+<li>Az Új HMV réteg szekcióban:
+* Adjuk meg a létrehozandó réteg nevét a Réteg név mezőben.
+* Az Adatbázis file név mező automatikusan kitöltődik, ha a File név réteg név szerint? opció ki van pipálva.
+* Ha saját magunk adnánk meg az adatbázis file nevét (például azért mert több réteggel is dolgozunk és szeretnénk mindet egy file-ban tárolni), kapcsoljuk ki a File név réteg név szerint? opciót és adjuk meg a választott file nevet. (A file minden esetben a Réteg munkakönytár mezőben megadott helyen lesz létrehozva.
+* Válassza ki, hogy elemek vagy szakaszok típusú réteget szeretne létrehozni, egy HMV hálózat elemzéséhez egy-egy összetartozó elemek és szakaszok rétegre van szükség.
+* A réteg QGIS projekthez való automatikus hozzáadásához a Hozzáadás réteg listához? opciót be kell kapcsolni.
+* Nyomja meg a Létrehoz gombot.</li>
+</ul>
+<p>A rendszer ezután létrehoz egy SpatiaLite adatbázist a megadott file névvel, ha még nem létezik. Ha már van ilyen nevű adatbázis file a réteg munkakönyvtárban, akkor megkérdezi, hogy az új réteget a már létező file-ba mentheti-e. Ezután a választott réteg típus létrehozásra kerül az adatbázisban, fontos, hogy ilyenkor a plugin által végzendő kalkulációkhoz szükséges feature attribútumok is létrehozásra kerülnek. Ebből kifolyólag nem javasolt a rétegek manuális létrehozása a QGIS eszközökkel (New SpatiaLite Layer, New Shapefile Layer), mert így elkerülhető az attribútumok manuális létrehozásával járó plusz munka és esetleges esetleges konfigurációs, vagy adatbeviteli hiba lehetősége.</p>
+<p>Ha a létrehozáskor kiválasztotta a Hozzzáadás réteglistához? opciót, akkor az újonnan létrehozott réteg automatikusan hozzáadásra kerül a Rétegek Panel-hez (Layers Panel). Ellenkező esetben, ha szeretné hozzáadni az adott rétegeket a QGIS projektjéhez, kövesse a Már meglévő rétegek megnyitása részt.</p>
+</div>
+<div class="section" id="mar-meglevo-retegek-megnyitasa">
+<h2>Már meglévő rétegek megnyitása<a class="headerlink" href="#mar-meglevo-retegek-megnyitasa" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>Ha a rétegek, amelyekkel dolgozni szeretne szerepelnek a Rétegek Panel-ben (Layers Panel), például, mert a réteg létrehozásakor kiválasztotta a Hozzáadás réteglistához? opciót, vagy egy korábban elmentett QGIS projektet nyitott meg, amelyben a rétegek amikkel dolgozni szeretne meg voltak nyitva, akkor nincs szükség erre a lépésre.</p>
+<p>Ha egy adatbázisban már meglévő, de a QGIS projektben nem szereplő réteget meg szeretne nyitni (hozzáadni a Rétegek Panel-hez), akkor kövesse az alábbiakat.</p>
+<p>Megjegyzés: A QGIS-ben a rétegek létrehozása a legkülönbözőbb adatforrásokból lehetséges, azonban mivel a plugin SpatiaLite adatbázisban hozza létre a HMV analízishez megfelelően konfigurált régeteket, így a rétegek SpatiaLite adatbázisból való megnyitását tárgyaljuk.</p>
+<ul class="simple">
+<li>A Böngésző Panel-ben (Browser Panel) kattintson jobb egérgombbal a SpatiaLite elemre.</li>
+<li>Válassza az Új Kapcsolat (New Connection) menüpontot.</li>
+<li>Keresse meg az adatbázis file-t.</li>
+<li>Nyissa meg.</li>
+<li>Az adatbázis most megjelenik a Böngésző Panel-ban (Browser Panel), a SpatiaLite elem alatti hierarchiában.</li>
+<li>Nyissa ki az adatbázis elem alatti hierarchiát a Böngésző Panel-ban (Browser Panel).</li>
+<li>Az adatbázisban tárolt rétegek megjelennek az adatbázis alatti hierarchiában.</li>
+<li>Kattintson jobb egérgombbal a projekthez hozzáadni kívánt rétegre és válassza a Réteg Hozzáadása (Add Layer) menüpontot.</li>
+<li>A Koordináta Referencia Rendszer Kiválasztó-ban (Coordinate Reference System Selector) ne módosítsa az alapbeállítást (WGS84) és kattintson az OK gombra.</li>
+<li>A réteg hozzáadásra kerül a Rétegek Panel-hez (Layers Panel).</li>
+</ul>
+</div>
+<div class="section" id="analizis-munkaretegek-kivalasztasa">
+<h2>Analízis munkarétegek kiválasztása<a class="headerlink" href="#analizis-munkaretegek-kivalasztasa" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>Az méretezési számítások elvégzéséhez a HMV hálózatot két összefüggő vektor rétegre kell felrajzolni és az elemek paramétereit megadni. Ha az értékelendő HMV hálózat meghatározásához szükséges elem és csőhálózat réteg be van töltve a Rétegek panel-ba (Layers Panel):</p>
+<ul class="simple">
+<li>A Beállítások fülön, nyomja meg a Réteg választás felirat melletti frissítés gombot.</li>
+<li>A plugin betölti az Elemek QGIS réteg és Csőhálózat QGIS réteg legördülő menübe a megfelelő típusú rétegeket (pont és szakasz) a Rétegek panel-ból (Layers Panel).</li>
+<li>Válassza ki a munkához használni kívánt rétegeket az Elemek QGIS réteg és Csőhálózat QGIS réteg legördülő menüben.</li>
+<li>A plugin funkciói mostantól a kiválasztott rétegekre kerülnek alkalmazásra.</li>
+</ul>
+</div>
+<div class="section" id="hasznalatban-levo-munkaretegek-formazasa">
+<h2>Használatban lévő munkarétegek formázása<a class="headerlink" href="#hasznalatban-levo-munkaretegek-formazasa" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>A hálózat ábrázolásának áttekinhetőbbé és informatívabbá tétele érdekében a kiválasztott munkarétegekeket egy gombnyomással formázhatjuk, ezzel a különböző objektumtípusok kiemelésre a kulcsadatok pedig megjelenítésre kerülnek a rajzon.</p>
+</div>
+<div class="section" id="kiindulasi-adatok-megadasa">
+<h2>Kiindulási adatok megadása<a class="headerlink" href="#kiindulasi-adatok-megadasa" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>A Beállítások fül alatt lehetőség van a számításokhoz használt rendszerszintű kiindulási adatok megadására. Ezek:</p>
+<ul class="simple">
+<li>Sűrűség: közeg (víz) sűrűsége, mértékegysége kg/m³</li>
+<li>Fajhő: közeg (víz) fajhője, mértékegysége J/kgK</li>
+<li>Δϑ: tervezett hőmérséklet csökkenés a tárolótól a csapig, mértékegysége K</li>
+<li>Csősebesség: közeg tervezett csősebessége, mértékegysége m/s</li>
+</ul>
+</div>
+<div class="section" id="visszatero-ag-cso-mereteinek-megadasa">
+<h2>Visszatérő ág cső méreteinek megadása<a class="headerlink" href="#visszatero-ag-cso-mereteinek-megadasa" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>Az plugin analízise során a visszatérő ág csőméretei is kiszámitásra kerülnek. A Cső méretek fül alatt beállíthatja azokat a cső méreteket, amelyekből a program kiválasztja majd a legoptimálisabbat.</p>
+</div>
+<div class="section" id="halozat-ellenorzes-analizis-elott">
+<h2>Hálózat ellenőrzés analízis előtt<a class="headerlink" href="#halozat-ellenorzes-analizis-elott" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>A analízis elvégzése előtt fontos, hogy a hálózat integritása megfelelő legyen. Ha a hálózat elemei között illesztési hibák vannak (két elem nem találkozik), akkor az analízis nem lesz elvégezhető, mivel az elemek közötti kapcsolatok nem értelmezhetőek.</p>
+<p>A hálózatot ellenörző funkció ebben nyújt segítséget, felderíti az integritási problémákat, így ezeket könnyebben megtalálhatja és javíthatja. A funkció haszálatához kattintson a Hálózat ell. fülre, majd nyomja meg a Hálózat ellenőrzés gombot. Az a következő állapot adatokat jelenítjük meg:</p>
+<ul>
+<li><p class="first">Státusz
+* Nem ellenőrzött (a hálózatot még nem ellenőrizte eddig)
+* Hibás! (a hálózatban hibát találtunk)
+* OK (a hálózat rendben van)</p>
+</li>
+<li><p class="first">Összes elem száma: Az ellenőrzés során talált hálózati elemek száma.</p>
+</li>
+<li><p class="first">Hibás elemek száma: Az ellenőrzés során talált összes hibás elem száma.</p>
+</li>
+<li><p class="first">Hibás elemek (csatlakozás nem megfelelő): A talált hibás elemek listája.
+* QGIS réteg: Melyik rétegen található az adott elem.
+* id: Az elem azonosítója.
+* Típus: Az elem típusa.</p>
+<p>A hibás elemek listájában található elemeket javítani kell, majd az ellenőrzést meg kell ismételni.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="analizis">
+<h2>Analízis<a class="headerlink" href="#analizis" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>A hálózat megtervezése és ellenőrzése után elvégezhető az analízis. Ezt az Analízis fül alatt lehet megtenni. Ha hálózat ellenőrzést még nem végezte el, vagy az sikertelen volt, egy üzenet jelenik meg, hogy ellenőrzést az analízis megkezdése előtt el kell végezni és annak sikeresnek kell lennie, vagyis a hálózat nem tartalmazhat hibákat.</p>
+<p>Ha az ellenőrzést már sikeresen elvégezte, akkor az Analízis gomb megnyomásával futtathatja le az analízist, ami elvégzi a számításokat.</p>
+<div class="section" id="eredmenyek-megjelenitese">
+<h3>Eredmények megjelenítése<a class="headerlink" href="#eredmenyek-megjelenitese" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+</div>
+<div class="section" id="koronkenti-nyomas-es-fojtas-eredmenyek">
+<h3>Körönkénti nyomás és fojtás eredmények<a class="headerlink" href="#koronkenti-nyomas-es-fojtas-eredmenyek" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+</div>
+<div class="section" id="aramlas-eredmenyek">
+<h3>Áramlás eredmények<a class="headerlink" href="#aramlas-eredmenyek" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="előző fejezet">HMV Méretezés Dokumentáció</a></li>
+      <li>Next: <a href="calculations.html" title="következő fejezet">Számítások</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Gyorskeresés</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Ok" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Tamas Kalman.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/usage.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

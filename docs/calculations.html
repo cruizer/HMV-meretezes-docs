@@ -1,0 +1,168 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hu">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Számítások &#8212; HMV-meretezes-docs 0.0.1 dokumentáció</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Tárgymutató" href="genindex.html" />
+    <link rel="search" title="Keresés" href="search.html" />
+    <link rel="prev" title="Használat" href="usage.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="szamitasok">
+<h1>Számítások<a class="headerlink" href="#szamitasok" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
+<div class="section" id="szakaszokra-vegzett-szamitasok">
+<h2>Szakaszokra végzett számítások<a class="headerlink" href="#szakaszokra-vegzett-szamitasok" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>Minden <em>m</em> szakaszra számítandó az adott szakasz hővesztesége a következő egyenletekkel:</p>
+<div class="section" id="hoatbocsatasi-tenyezo-w-mk">
+<h3>Hőátbocsátási tényező [W/mK]<a class="headerlink" href="#hoatbocsatasi-tenyezo-w-mk" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>kᵥ = π / ( ( 1 / ( 2 · λₘ ) ) · ln( Dₘ - dₘ ) + ( 1 / ( αₖₘ · Dₘ / 1000 ) ) )</p>
+</div>
+<div class="section" id="holeadas-w-m">
+<h3>Hőleadás [W/m]<a class="headerlink" href="#holeadas-w-m" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>q̇ₘ = kₘ · ( Tₕₘᵥ - Tₕ )</p>
+</div>
+<div class="section" id="szakasz-hovesztesege-w">
+<h3>Szakasz hővesztesége [W]<a class="headerlink" href="#szakasz-hovesztesege-w" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>Q̇ₘ = q̇ₘ · Lₘ</p>
+</div>
+</div>
+<div class="section" id="eloremeno-halozatra-vegzett-szamitasok">
+<h2>Előremenő hálózatra végzett számitások<a class="headerlink" href="#eloremeno-halozatra-vegzett-szamitasok" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>Miután a szakaszokra kiszámitásra kerültek az értékek, kiszámíthatóak ezekből a rendszer vonatkozó értékek.</p>
+<div class="section" id="teljes-eloremeno-halozat-hovesztesege-w">
+<h3>Teljes előremenő hálózat hővesztesége [W]<a class="headerlink" href="#teljes-eloremeno-halozat-hovesztesege-w" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>Az összes szakasz hőveszteségét összeadva kapjuk meg a teljes előremenő hálózat hőveszteségét.</p>
+<p>Q̇ = ∑Q̇ₘ</p>
+</div>
+<div class="section" id="szukseges-tomegaram-m3-s-3-6-106-dm3-h">
+<h3>Szükséges tömegáram [m³/s] · 3,6 · 10⁶ = [dm³/h]<a class="headerlink" href="#szukseges-tomegaram-m3-s-3-6-106-dm3-h" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>Ez a szivattyú által biztosítandó cirkulációs térfogatáram. Kiszámítható a teljes előremenő hálózat hőveszteség, a közeg sűrűség és fajhő, illetve a tárolótól a csapig tervezett hőmérséklet csökkenés függvényéből.</p>
+<p>V̇       = Q̇ / ( ρ · c · Δϑ )</p>
+</div>
+</div>
+<div class="section" id="csomopontokra-vegzett-szamitasok">
+<h2>Csomópontokra végzett számítások<a class="headerlink" href="#csomopontokra-vegzett-szamitasok" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<div class="section" id="csomopontokban-hatralevo-hovesztesegek">
+<h3>Csomópontokban hátralévő hőveszteségek<a class="headerlink" href="#csomopontokban-hatralevo-hovesztesegek" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>A csomópontból kiágazó ágak összes hővesztesége a cirkulációs vezetékek lecsatlakozásáig. A hőveszteséget a hálózaton a cirkulációs vezeték lecsatlakozásától indulva az ágra vonatkozó addigi hőveszteség értékét görgetve számítjuk ki minden következő csomópontra, amire a csomópontból leágazó összes ágból összegeztük a hőveszteségek, tehát megkaptuk a végeredményt az adott csomópontra. Majd haladunk tovább visszafelé az előremenő hálózaton, egészen a HMV tárolóig.</p>
+</div>
+<div class="section" id="tovabbhalado-es-leagazo-hovesztesegek">
+<h3>Továbbhaladó és leágazó hőveszteségek<a class="headerlink" href="#tovabbhalado-es-leagazo-hovesztesegek" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>Egy adott csomópontból egy kiválasztott szakaszon kiindulva, mennyi a cirkulációs lecsatlakozásig hátralévő szakaszok összes hővesztesége.</p>
+<p>Ezt a következőképp számítjuk:</p>
+<ul class="simple">
+<li>A kiválasztott szakasz másik végződésének (a cirkulációs leágazás felé eső) csomópontjára számított összes hátralévő hőveszteségek
+és</li>
+<li><dl class="first docutils">
+<dt>A kiválasztott szakasz hőveszteségének</dt>
+<dd>összege.</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="szakaszok-terfogataramanak-meghatarozasa">
+<h3>Szakaszok térfogatáramának meghatározása<a class="headerlink" href="#szakaszok-terfogataramanak-meghatarozasa" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<blockquote>
+<div>A hálózaton a HMV tároló berendezéstől indulva az előremenő hálózaton számítjuk. A csomópontba bejövő összes csőszakasz térfogatáramát szorozzuk a számolt vezeték leágazó hőveszteségével, osztva a csomópontban hátralévő összes hőveszteséggel.</div></blockquote>
+</div>
+</div>
+<div class="section" id="visszatero-oldal-csoatmerok-meghatarozasa">
+<h2>Visszatero oldal csoatmerok meghatarozasa<a class="headerlink" href="#visszatero-oldal-csoatmerok-meghatarozasa" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<blockquote>
+<div><p>A eloremeno halozat szakaszoknak megfelelo visszatero oldali csoszakaszok atmeroit az eloremeno oldal terforgataramok, es a rendelkezesre allo csomeretek (konfiguracioban modosithato) szerint szamoljuk, a kovetkezo keplet szerint:</p>
+<p>wₘ = 4 · (V̇ₘ / 3,6 · 10⁶) / ((dₘ / 1000)² · π)</p>
+<p>Ezt a szamitast sorban elvegezzuk a rendelkezesre allo csomeretekkel, egeszen addig, amig a csosebesseg 0,2 m/s es 1 m/s koze nem esik, ha ez megtortenik, akkor az adott csoatmero a megfelelo.</p>
+</div></blockquote>
+</div>
+<div class="section" id="csosurlodasi-tenyezo-meghatarozasa">
+<h2>Csosurlodasi tenyezo meghatarozasa<a class="headerlink" href="#csosurlodasi-tenyezo-meghatarozasa" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<blockquote>
+<div><p>A csosurlodasi tenyezo szamitasanak modja fugg az aramlas termeszetetol, amit a Reynolds szam hataroz meg. Tehat eloszor ezt szamitjuk, ennek modja:</p>
+<p>Rₑ = wₘ · (dₘ / 1000) / vₘ</p>
+<p>Ahol vₘ a kinematikai viszkozitas, allando erteke 5 · 10⁻⁷ esetunkben.</p>
+<p>Ezutan:</p>
+</div></blockquote>
+<ul class="simple">
+<li>A csosurlodasi tenyezo szamitasa Rₑ &lt;= 2300 eseten: λ = 64 / Rₑ</li>
+<li>A csosurlodasi tenyezo szamitase Rₑ &gt; 2300 eseten: λ = 1 / (-2 · lg(2,51 / (Rₑ √λ)))²</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="usage.html" title="előző fejezet">Használat</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Gyorskeresés</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Ok" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Tamas Kalman.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/calculations.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
