@@ -4,25 +4,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="hu">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Plugin komponensek &#8212; HMV-meretezes-docs 0.0.1 dokumentáció</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.0.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Tárgymutató" href="genindex.html" />
     <link rel="search" title="Keresés" href="search.html" />
     <link rel="prev" title="Számítások" href="calculations.html" />
@@ -32,37 +23,39 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body>
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="plugin-komponensek">
 <h1>Plugin komponensek<a class="headerlink" href="#plugin-komponensek" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
-<p>A plugin telepítéséhez a következő file-okat kell a QGIS plugin könyvtárába másolni, pl. az én esetemben a plugin file-ok itt vannak: <code class="docutils literal"><span class="pre">~/.qgis2/python/plugins/hmv/</span></code>.</p>
+<p>A plugin telepítéséhez a következő file-okat kell a QGIS plugin könyvtárába másolni, pl. az én esetemben a plugin file-ok itt vannak: <code class="docutils literal notranslate"><span class="pre">~/.qgis2/python/plugins/hmv/</span></code>.</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">__init__.py</span></code>: Plugin inicializációs szkriptje.</li>
-<li><code class="docutils literal"><span class="pre">chart.py</span></code>: Térfogatáram grafikon rajzolás.</li>
-<li><code class="docutils literal"><span class="pre">hmv_chart.py</span></code>: Térfogatáram grafikont megjelenítő widget. (Qt generált file)</li>
-<li><code class="docutils literal"><span class="pre">hmv_meretezes.py</span></code>: The main plugin program, containing most of the logic.</li>
-<li><code class="docutils literal"><span class="pre">hmv_meretezes_models.py</span></code>: Qt komponens modellek.</li>
-<li><code class="docutils literal"><span class="pre">hmv_meretezes_plugin.py</span></code>: A fő HmvPlugin objektum, ami összerakja a widget komponenseket és elindítja a plugint.</li>
-<li><code class="docutils literal"><span class="pre">hmv_results.py</span></code>: Az eredmény nézet. (Qt generált file)</li>
-<li><code class="docutils literal"><span class="pre">hmv_widget.py</span></code>: A fő widget nézet. (Qt generált file)</li>
-<li><code class="docutils literal"><span class="pre">metadata.txt</span></code>: Plugin metadata a QGIS-nek.</li>
-<li><code class="docutils literal"><span class="pre">pipesys_objects.py</span></code>: A csőhálózat objektumok.</li>
-<li><code class="docutils literal"><span class="pre">qt_utility.py</span></code>: Qt helper a megfelelő címke encodinghoz?</li>
-<li><code class="docutils literal"><span class="pre">ui_refresh.py</span></code>: A refresh ikont biztosító Qt resource file.</li>
-<li><code class="docutils literal"><span class="pre">refresh_rc</span></code>: Valamilyen refresh ikon resource file?</li>
+<li><code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>: Plugin inicializációs szkriptje.</li>
+<li><code class="docutils literal notranslate"><span class="pre">chart.py</span></code>: Térfogatáram grafikon rajzolás.</li>
+<li><code class="docutils literal notranslate"><span class="pre">hmv_chart.py</span></code>: Térfogatáram grafikont megjelenítő widget. (Qt generált file)</li>
+<li><code class="docutils literal notranslate"><span class="pre">hmv_meretezes.py</span></code>: The main plugin program, containing most of the logic.</li>
+<li><code class="docutils literal notranslate"><span class="pre">hmv_meretezes_models.py</span></code>: Qt komponens modellek.</li>
+<li><code class="docutils literal notranslate"><span class="pre">hmv_meretezes_plugin.py</span></code>: A fő HmvPlugin objektum, ami összerakja a widget komponenseket és elindítja a plugint.</li>
+<li><code class="docutils literal notranslate"><span class="pre">hmv_results.py</span></code>: Az eredmény nézet. (Qt generált file)</li>
+<li><code class="docutils literal notranslate"><span class="pre">hmv_widget.py</span></code>: A fő widget nézet. (Qt generált file)</li>
+<li><code class="docutils literal notranslate"><span class="pre">metadata.txt</span></code>: Plugin metadata a QGIS-nek.</li>
+<li><code class="docutils literal notranslate"><span class="pre">pipesys_objects.py</span></code>: A csőhálózat objektumok.</li>
+<li><code class="docutils literal notranslate"><span class="pre">qt_utility.py</span></code>: Qt helper a megfelelő címke encodinghoz?</li>
+<li><code class="docutils literal notranslate"><span class="pre">ui_refresh.py</span></code>: A refresh ikont biztosító Qt resource file.</li>
+<li><code class="docutils literal notranslate"><span class="pre">refresh_rc</span></code>: Valamilyen refresh ikon resource file?</li>
 </ul>
 </div>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -76,12 +69,14 @@
 </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Gyorskeresés</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Ok" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Ok" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -92,8 +87,8 @@
       &copy;2018, Tamas Kalman.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.6</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="_sources/components.rst.txt"
